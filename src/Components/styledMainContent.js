@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const ContentProjects = styled.div`
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr) );
+    grid-template-columns: repeat(auto-fill, minmax(470px, 1fr) );
     grid-template-rows: auto;
     
-    @media (max-width: 412px){
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr) );
+    @media (max-width: 426px){
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr) );
     }
 `;
 
@@ -21,8 +21,10 @@ export const ProjectsCard = styled.div`
     height: 200px;
     margin: 10px;
     
+
     @media (max-width: 426px){
         grid-template-rows: 1fr 1fr;
+        height: 320px;
     }
 `;
 
@@ -66,9 +68,7 @@ export const ProjectsDescription = styled.p`
     margin-top: 5px;
     grid-column: 1/3;
     font-size: 20px;
-    @media (max-width: 985px) and (min-width: 890px){
-        font-size: 14px;
-    }
+    
 `;
 
 export const ProjectsLink = styled.button`

@@ -8,14 +8,16 @@ const rent_car = (state = Cars, action) => {
         
         case RENT_CAR : {
             return{
-                ...state
+                ...state,
+                free : state.free - action.cant,
+                rent : state.rent + action.cant
             }
         }
         case RETURN_CAR: {
             return{
                 ...state,
-                rent: state[action.id].rent - action.cant,
-                free: state[action.id].free + action.cant
+                free : state.free + action.cant,
+                rent : state.rent - action.cant
             }
         }
 
