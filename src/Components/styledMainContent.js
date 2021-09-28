@@ -71,7 +71,7 @@ export const ProjectsDescription = styled.p`
     }
 `;
 
-export const ProjectsLink = styled.a`
+export const ProjectsLink = styled.button`
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;

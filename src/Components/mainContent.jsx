@@ -1,9 +1,14 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { rent_car, return_car } from '../Redux/Actions/actionRent';
 import { Cars } from './dataCar';
-import {ContentProjects, ContentBox, ProjectsCard, ProjectsImg, ProjectsInfo, ProjectsDescription, ProjectsTitle, ProjectsLink, TitleProjects} from './styledMainContent'
+import {ContentProjects, ProjectsCard, ProjectsImg, ProjectsInfo, ProjectsDescription, ProjectsLink} from './styledMainContent'
 
 
 const MainContent = () => {
+
+    const rentReducer = useSelector((state)=> state.rentReducer)
+    const dispatch = useDispatch();
     return (
         <>
         <h1>Rent Car</h1>
@@ -15,11 +20,13 @@ const MainContent = () => {
                                 <ProjectsInfo>
                                     <ProjectsDescription>
                                         <strong> {item.name} </strong> <br />
+                                        {/* Stock: {rentReducer[item.id - 1].stock} <br/>
                                         Rent: <br />
-                                        Free: <br />
+                                        Free: {rentReducer[item.id - 1].free}<br /> */}
                                     </ProjectsDescription>
-                                    <ProjectsLink href={item.urlLive} target="_blank" column={"1/2"}>Rent </ProjectsLink>
-                                    <ProjectsLink href={item.urlGithub} target="_blank" column={"2/3"}>Return</ProjectsLink>
+
+                                    <ProjectsLink column={"1/2"} onClick={() => {dispatch(rent_car(1, item.id))}}>Rent </ProjectsLink>
+                                    <ProjectsLink column={"2/3"} onClick={() => {dispatch(return_car(1, item.id))}}>Return</ProjectsLink>
                                 </ProjectsInfo>
                             </ProjectsCard>
             ))
